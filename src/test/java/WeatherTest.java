@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WeatherTest {
 
+    // Test by sprawdzić czy Twoje rozwiązanie działa
     @Test
     void gettemp20cm_Average_shouldReturnReturnAvgTempForMeasurementsFromLast10Minutes() {
         Station[] array = getStations();
