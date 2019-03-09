@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Station {
 
 private int id;
@@ -6,25 +8,32 @@ private double temp20cm;
 private double temp2m;
 private double temp0m;
 private double temp5cm;
-private double wind_dir;
-private double wind_speed;
+/*
+    w javie uzywa się raczej camel case'a, do załatwienia problemu parsowania
+    można użyć adnotacji @JsonProperty
+ */
+@JsonProperty("wind_dir")
+private double windDir;
+@JsonProperty("wind_speed")
+private double windSpeed;
 private double precipitation;
-private String measure_time;
+@JsonProperty("measure_time")
+private String measureTime;
 
 
     public Station() {
     }
 
-    public Station(int id, double temp20cm, double temp2m, double temp0m, double temp5cm, double wind_dir, double wind_speed, double precipitation, String measure_time) {
+    public Station(int id, double temp20cm, double temp2m, double temp0m, double temp5cm, double windDir, double windSpeed, double precipitation, String measureTime) {
         this.id = id;
         this.temp20cm = temp20cm;
         this.temp2m = temp2m;
         this.temp0m = temp0m;
         this.temp5cm = temp5cm;
-        this.wind_dir = wind_dir;
-        this.wind_speed = wind_speed;
+        this.windDir = windDir;
+        this.windSpeed = windSpeed;
         this.precipitation = precipitation;
-        this.measure_time = measure_time;
+        this.measureTime = measureTime;
     }
 
     public int getId() {
@@ -67,20 +76,20 @@ private String measure_time;
         this.temp5cm = temp5cm;
     }
 
-    public double getWind_dir() {
-        return wind_dir;
+    public double getWindDir() {
+        return windDir;
     }
 
-    public void setWind_dir(double wind_dir) {
-        this.wind_dir = wind_dir;
+    public void setWindDir(double windDir) {
+        this.windDir = windDir;
     }
 
-    public double getWind_speed() {
-        return wind_speed;
+    public double getWindSpeed() {
+        return windSpeed;
     }
 
-    public void setWind_speed(double wind_speed) {
-        this.wind_speed = wind_speed;
+    public void setWindSpeed(double windSpeed) {
+        this.windSpeed = windSpeed;
     }
 
     public double getPrecipitation() {
@@ -91,12 +100,12 @@ private String measure_time;
         this.precipitation = precipitation;
     }
 
-    public String getMeasure_time() {
-        return measure_time;
+    public String getMeasureTime() {
+        return measureTime;
     }
 
-    public void setMeasure_time(String measure_time) {
-        this.measure_time = measure_time;
+    public void setMeasureTime(String measureTime) {
+        this.measureTime = measureTime;
     }
 
     @Override
@@ -107,10 +116,10 @@ private String measure_time;
                 ", temp2m=" + temp2m +
                 ", temp0m=" + temp0m +
                 ", temp5cm=" + temp5cm +
-                ", wind_dir=" + wind_dir +
-                ", wind_speed=" + wind_speed +
+                ", windDir=" + windDir +
+                ", windSpeed=" + windSpeed +
                 ", precipitation=" + precipitation +
-                ", measure_time='" + measure_time + '\'' +
+                ", measureTime='" + measureTime + '\'' +
                 '}';
     }
 }
